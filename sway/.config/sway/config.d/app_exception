@@ -1,0 +1,21 @@
+assign { 
+    [app_id="zoom"] workspace 6
+    [app_id="discord"] workspace 7
+    [app_id="ymuse"] workspace 10
+}
+for_window {
+    [window_role="(pop-up|bubble|dialog)"] floating enable
+    [title="MEGAsync"] floating enable
+    [app_id="firefox" title="About Mozilla Firefox"] floating enable
+    [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+    [app_id="firefox" title="Picture-in-Picture"] floating enable
+    [app_id="firefox" title="Firefox – Sharing Indicator"] floating enable
+    [title="Zoom - Free Account"] floating enable
+    [title="zoom"] floating enable
+    [title="File Operation Progress"] floating enable
+    [title="Bluetooth Devices"] floating enable
+    [title="Bluetooth Devices"] resize set 650 650
+    [title="Authentication required"] floating enable
+    [title="Connect to Network"] resize set 650 650
+}
+

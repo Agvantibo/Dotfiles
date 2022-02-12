@@ -1,0 +1,10 @@
+#bindsym $mod+в exec menu
+#bindsym $mod+Shift+с reload
+#bindsym $mod+Shift+у exec wlogout
+#bindsym $mod+и splithg
+#bindsym $mod+м splitv
+#bindsym $mod+ы layout stacking
+#bindsym $mod+ц layout tabbed
+#bindsym $mod+у layout toggle split
+#bindsym $mod+а fullscreen
+#bindsym $mod+ф focus parent

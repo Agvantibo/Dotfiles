@@ -1,0 +1,11 @@
+# Logo key. Use Mod1 for Alt.
+#set $lock sh -c 'swaymsg "output * dpms off" && swaylock -eFlk --font Noto --color 000000'
+set $lock sh -c 'swaylock -eFlk --font Noto --timestr "%T" --datestr "%d %b %Y" --color 000000 --fade-in --grace 4 --grace-no-mouse --grace-no-touch --clock --key-hl-color ffffff --effect-greyscale --effect-vignette 0.3:0.1  --text-color 4e88cf'
+set $mod Mod4
+#bindsym --to-code $mod+Shift+d exec mauncher-launcher
+bindsym --to-code Print exec 'grim - | swappy -f -'
+bindsym --to-code $mod+l exec $lock
+bindsym --to-code --locked $mod+Shift+l exec wlogout
+bindsym --to-code Shift+Print exec fish -c 'grim -g (slurp) - | swappy -f -'
+bindsym --to-code $mod+Shift+t exec kitty -o tab_bar_style=hidden --class=launcher -e timer
+bindsym --to-code $mod+v exec kitty --class=launcher -T 'Select Clipboard Item' -o tab_bar_style=hidden -e sh -c 'clipman pick -t CUSTOM -T fzf'
