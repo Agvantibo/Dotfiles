@@ -15,7 +15,8 @@
 		"custom/right-arrow-dark",
                 "custom/right-arrow-light",
                 "sway/language",
-                "custom/right-arrow-dark"
+                "custom/right-arrow-dark",
+		"sway/status"
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -82,15 +83,16 @@
 
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon} {volume}% ",
+		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "MUTE",
 		"format-icons": {
 			"headphones": "",
 			"headset": "",
-			"default": [
-				"",
-				""
-			]
+			"hands-free": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
 		},
 		"scroll-step": 5,
 		"on-click": "pamixer -t",
@@ -120,6 +122,7 @@
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
+		"full-at": "99",
 		"format-icons": [
 			"",
 			"",
@@ -129,14 +132,14 @@
 		]
 	},
 	"network": {
-  		"format": "{ifname}",
-	  	"format-wifi": "{essid} ({signalStrength}%) ",
-  		"format-ethernet": "{ifname} ",
-	  	"format-disconnected": "",
-  		"tooltip-format": "{ifname}",
-	  	"tooltip-format-wifi": "{essid} {signalStrength}% ",
-  		"tooltip-format-ethernet": "{ifname} ",
-	  	"tooltip-format-disconnected": "Disconnected",
+		"format": "{ifname}",
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} {signalStrength}% ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
 		"max-length": 50
 	},
 	"idle_inhibitor": {

@@ -11,3 +11,5 @@ end
 function fish_greeting
     neofetch
 end
+
+alias nano="nano --magic --mouse --locking --bold"

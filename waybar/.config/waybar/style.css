@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Cantarell, "Font Awesome 5 Free", sans-serif;
+    font-family: Cantarell, "", sans-serif;
     font-size: 9px;
 }
 
@@ -24,28 +24,23 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
-
+/*
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each workspace name */
     border: none;
     border-radius: 0;
 }
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.50);
-    box-shadow: inset 0 -3px #ffffff;
-}
+*/
 
 #workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(100, 100, 100, 0.5);
     box-shadow: inset 0 -3px #ffffff;
+    border-radius: 0;
 }
+
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
@@ -275,6 +270,7 @@ window#waybar {
 #network.disabled,
 #temperature,
 #temperature.critical,
+#pulseaudio.muted,
 #tray {
 	background: #1a1a1a;
 }
@@ -334,6 +330,10 @@ window#waybar {
 
 #temperature.critical {
 	color: #b30015;
+}
+
+#pulseaudio.muted {
+    color: #b30015;
 }
 
 #clock,
