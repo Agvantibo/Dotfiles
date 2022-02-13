@@ -1,6 +1,6 @@
 # Applets and services
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec sh -c 'QT_QPA_PLATFORM=xcb megasync'
+exec megasync
 exec thunar --daemon
 exec wlsunset -g 0.9
 exec /usr/lib/xfce-polkit/xfce-polkit
