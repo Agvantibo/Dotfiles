@@ -91,9 +91,18 @@ window#waybar.solo {
     color: #000000;
 }
 
+
+
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #19785a;
+}
+
+battery.warning {
+    color: #e0a009;
+}
+
+#battery.good:not(.charging) {
+    color: #26A65B;
 }
 
 @keyframes blink {

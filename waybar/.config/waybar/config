@@ -123,7 +123,11 @@
 			"warning": 30,
 			"critical": 15
 		},
+		"bat": "BAT0",
+		"adapter": "AC0",
 		"format": "{icon} {capacity}%",
+		"format-time": "{H} hrs {M} mins",
+		"format-charging": " {icon} {capacity}%",
 		"full-at": "99",
 		"format-icons": [
 			"",
