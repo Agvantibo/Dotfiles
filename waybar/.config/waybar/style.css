@@ -36,14 +36,15 @@ window#waybar.solo {
 */
 
 #workspaces button.focused {
-    background-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(100, 100, 100, 0.07);
     box-shadow: inset 0 -3px #ffffff;
     border-radius: 0;
 }
 
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    box-shadow: inset 0 -3px #eb4d4b;
+    border-radius: 0;    
 }
 
 #mode {
@@ -268,6 +269,7 @@ window#waybar {
 #idle_inhibitor,
 #idle_inhibitor.activated,
 #network.disabled,
+#network.disconnected,
 #temperature,
 #temperature.critical,
 #pulseaudio.muted,

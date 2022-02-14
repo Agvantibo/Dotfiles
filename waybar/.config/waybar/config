@@ -15,8 +15,10 @@
 		"custom/right-arrow-dark",
                 "custom/right-arrow-light",
                 "sway/language",
-                "custom/right-arrow-dark",
-		"sway/status"
+                "custom/right-arrow-dark"
+//		"custom/right-arrow-light",
+//		"mode",
+//		"custom/right-arrow-dark"
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -135,11 +137,13 @@
 		"format": "{ifname}",
 		"format-wifi": "{essid} ({signalStrength}%) ",
 		"format-ethernet": "{ifname} ",
-		"format-disconnected": "",
+		"format-disabled": "",
+		"format-disconnected": "  ",
 		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} {signalStrength}% ",
-		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-wifi": "{essid} {signalStrength}%  ",
+		"tooltip-format-ethernet": "{ifname}  ",
 		"tooltip-format-disconnected": "Disconnected",
+		"on-click": "kitty --class=launcher --title='Connect to Network' -o tab_bar_style=hidden -e sh -c 'sleep 0.01; nmtui'",
 		"max-length": 50
 	},
 	"idle_inhibitor": {
@@ -164,5 +168,9 @@
 		"critical-threshold": 80,
 		"format-critical": "{temperatureC}°C ",
 		"format": "{temperatureC}°C "
-  }
+	},
+	"mode": {
+		"format": " {}",
+		"max-length": 50
+	}
 }
