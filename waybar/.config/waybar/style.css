@@ -107,16 +107,14 @@ battery.warning {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        color: #ffffff;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    color: #f53c3c;
     animation-name: blink;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -340,7 +338,12 @@ window#waybar {
 }
 
 #temperature.critical {
-	color: #b30015;
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #pulseaudio.muted {

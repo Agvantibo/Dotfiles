@@ -147,7 +147,7 @@
 		"tooltip-format-wifi": "{essid} {signalStrength}%  ",
 		"tooltip-format-ethernet": "{ifname}  ",
 		"tooltip-format-disconnected": "Disconnected",
-		"on-click": "kitty --class=launcher --title='Connect to Network' -o tab_bar_style=hidden -e sh -c 'sleep 0.01; nmtui'",
+		"on-click": "kitty --class=launcher --title='Connect to Network' -o tab_bar_style=hidden -e sh -c 'sleep 0.4; nmtui'",
 		"max-length": 50
 	},
 	"idle_inhibitor": {

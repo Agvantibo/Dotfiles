@@ -1,1 +1,2 @@
+output "*" bg /usr/share/backgrounds/archlinux/archwave.png fill
 client.focused #1a1a1a #1a1a1a #ffffff

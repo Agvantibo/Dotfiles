@@ -7,5 +7,5 @@ bindsym --to-code Print exec 'grim - | swappy -f -'
 bindsym --to-code $mod+l exec $lock
 bindsym --to-code --locked $mod+Shift+l exec wlogout
 bindsym --to-code Shift+Print exec fish -c 'grim -g (slurp) - | swappy -f -'
-bindsym --to-code $mod+Shift+t exec kitty -o tab_bar_style=hidden --class=launcher -e timer
+bindsym --to-code $mod+Shift+t exec kitty -o tab_bar_style=hidden -o font_size=5 --class=launcher -e timer
 bindsym --to-code $mod+v exec kitty --class=launcher -T 'Select Clipboard Item' -o tab_bar_style=hidden -e sh -c 'clipman pick -t CUSTOM -T fzf'
