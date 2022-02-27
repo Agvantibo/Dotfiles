@@ -5,17 +5,34 @@ assign {
 }
 for_window {
     [window_role="(pop-up|bubble|dialog)"] floating enable
-    [title="MEGAsync"] floating enable
-    [app_id="firefox" title="About Mozilla Firefox"] floating enable
-    [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-    [app_id="firefox" title="Picture-in-Picture"] floating enable
-    [app_id="firefox" title="Firefox – Sharing Indicator"] floating enable
+    [title="MEGAsync"] {
+        floating enable
+        border none
+    }
+    [app_id="firefox" title="About Mozilla Firefox"] {
+        floating enable
+        border none
+    }
+    [app_id="firefox" title="Pushbullet – Mozilla Firefox"] {
+        floating enable
+        border none
+    }
+    [app_id="firefox" title="Picture-in-Picture"] {
+        floating enable
+        border none
+    }
+    [app_id="firefox" title="Firefox – Sharing Indicator"] {
+        floating enable
+        border none
+    }
     [title="Zoom - Free Account"] floating enable
     [title="zoom"] floating enable
     [title="File Operation Progress"] floating enable
-    [title="Bluetooth Devices"] floating enable
-    [title="Bluetooth Devices"] resize set 650 650
+    [title="Bluetooth Devices"] {
+        floating enable
+        resize set 650 650
+    }
     [title="Authentication required"] floating enable
     [title="Connect to Network"] resize set 650 650
+    [title=""] border none
 }
-
