@@ -34,5 +34,4 @@ for_window {
     }
     [title="Authentication required"] floating enable
     [title="Connect to Network"] resize set 650 650
-    [title=""] border none
 }

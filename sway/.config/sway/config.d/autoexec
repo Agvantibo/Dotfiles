@@ -6,6 +6,7 @@ exec wlsunset -g 0.9
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 exec_always  mako --font 'Source Code Pro 10' --icons=1 --background-color '#1a1a1a' --text-color '#FFFFFF' --border-color '#575757' --default-timeout 5000 --width 400 --markup 1 --border-radius 5
+exec unison-fsmonitor
 exec sway-alttab
 
 #Autoload apps
