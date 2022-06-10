@@ -1,13 +1,17 @@
+exec_always gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+smart_borders on
+
 assign { 
-    [app_id="zoom"] workspace 6
-    [app_id="discord"] workspace 7
-    [app_id="ymuse"] workspace 10
+    [app_id="zoom"] workspace 11:a
+    [app_id="discord"] workspace 6:6
+    [app_id="ymuse"] workspace 10:10
 }
 for_window {
     [window_role="(pop-up|bubble|dialog)"] floating enable
     [title="MEGAsync"] {
         floating enable
-        border none
+        border csd
     }
     [app_id="firefox" title="About Mozilla Firefox"] {
         floating enable
@@ -34,4 +38,12 @@ for_window {
     }
     [title="Authentication required"] floating enable
     [title="Connect to Network"] resize set 650 650
+    [title="DoomRunner"] fullscreen
+    [app_id="ulauncher"] {
+        border none
+        position 0 0
+        sticky enable
+        move center
+        move up 300
+    }
 }

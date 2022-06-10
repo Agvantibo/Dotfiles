@@ -13,12 +13,12 @@
 		"custom/right-arrow-light",
 		"pulseaudio",
 		"custom/right-arrow-dark",
-                "custom/right-arrow-light",
+		"custom/right-arrow-light",
                 "sway/language",
-                "custom/right-arrow-dark"
-//		"custom/right-arrow-light",
-//		"mode",
-//		"custom/right-arrow-dark"
+                "custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"sway/mode",
+		"custom/right-arrow-dark"
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -36,8 +36,8 @@
 		"network",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-                "bluetooth",
-                "custom/left-arrow-light",
+                "custom/bluetooth",
+		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"temperature",
 		"custom/left-arrow-light",
@@ -88,8 +88,8 @@
 		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "MUTE",
 		"format-icons": {
-			"headphones": "",
-			"headset": "",
+			"headphones": "",
+			"headset": "",
 			"hands-free": "",
 			"phone": "",
 			"portable": "",
@@ -104,13 +104,9 @@
 		"interval": 5,
 		"format": "Mem {}%"
 	},
-	"bluetooth": {
-		"format": "{icon}",
-		"format-icons": {
-		"enabled": "",
-		"disabled": " "
-		},
-	"tooltip-format": "{}",
+	"custom/bluetooth": {
+		"format": "",
+	"tooltip-format": "Bluetooth",
 	"on-click": "blueman-manager"
 	},
 	"cpu": {
@@ -121,7 +117,8 @@
 		"states": {
 			"good": 95,
 			"warning": 30,
-			"critical": 15
+			"critical": 15,
+                        "death": 10
 		},
 		"bat": "BAT0",
 		"adapter": "AC0",
@@ -147,7 +144,7 @@
 		"tooltip-format-wifi": "{essid} {signalStrength}%  ",
 		"tooltip-format-ethernet": "{ifname}  ",
 		"tooltip-format-disconnected": "Disconnected",
-		"on-click": "kitty --class=launcher --title='Connect to Network' -o tab_bar_style=hidden -e sh -c 'sleep 0.4; nmtui'",
+		"on-click": "kitty --class=launcher --title='Connect to Network' -o tab_bar_style=hidden -e sh -c 'killall nmtui; nmtui'",
 		"max-length": 50
 	},
 	"idle_inhibitor": {
@@ -173,8 +170,8 @@
 		"format-critical": "{temperatureC}°C ",
 		"format": "{temperatureC}°C "
 	},
-	"mode": {
-		"format": " {}",
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>",
 		"max-length": 50
 	}
 }

@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Cantarell, "", sans-serif;
-    font-size: 9px;
+    font-family: "Symbols Nerd Font", "Source Code Pro";
+    font-size: 14px;
 }
 
 window#waybar {
@@ -115,6 +115,15 @@ battery.warning {
     color: #f53c3c;
     animation-name: blink;
     animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.death:not(.charging) {
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -241,15 +250,23 @@ label:focus {
 #keyboard-state > label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
-* {
-	font-size: 14px;
-	font-family: monospace;
-}
 
 window#waybar {
 	background: #292b2e;
 	color: #fdf6e3;
 }
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark,
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 20px;
+}
+
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
@@ -266,7 +283,7 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
-#bluetooth,
+#custom-bluetooth,
 #memory,
 #cpu,
 #battery,
@@ -311,7 +328,7 @@ window#waybar {
 	color: #6c71c4;
 }
 
-#bluetooth enabled {
+#custom-bluetooth enabled {
 	color: #859900;
 }
 
@@ -351,7 +368,7 @@ window#waybar {
 }
 
 #clock,
-#bluetooth,
+#custom-bluetooth,
 #network,
 #pulseaudio,
 #memory,

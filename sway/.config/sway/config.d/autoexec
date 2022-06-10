@@ -1,20 +1,18 @@
 # Applets and services
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec megasync
-exec thunar --daemon
 exec wlsunset -g 0.9
-exec /usr/lib/xfce-polkit/xfce-polkit
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
-exec_always  mako --font 'Source Code Pro 10' --icons=1 --background-color '#1a1a1a' --text-color '#FFFFFF' --border-color '#575757' --default-timeout 5000 --width 400 --markup 1 --border-radius 5
-exec unison-fsmonitor
-exec sway-alttab
-
+exec wlaunchpad -d -n
+exec_always mako --font 'Source Code Pro 10' --icons=1 --background-color '#1a1a1a' --text-color '#FFFFFF' --border-color '#575757' --default-timeout 5000 --width 400 --markup 1 --border-radius 5
+exec bash -c "activate-linux &; sleep 120; killall -9 activate-linux"
 #Autoload apps
-exec swaymsg "workspace 1; exec firefox-nightly;"
-exec swaymsg "workspace 2; exec kitty;"
-exec swaymsg "workspace 3; exec thunderbird;"
-exec swaymsg "workspace 4; exec hexchat;"
-exec swaymsg "workspace 5; exec telegram-desktop;"
-exec swaymsg "workspace 6; exec zoom;"
-exec swaymsg "workspace 7; exec discord-canary;"
-exec swaymsg "workspace 10; exec ymuse;"
+exec swaymsg "workspace 1:1; exec firefox;"
+exec swaymsg "workspace 2:2; exec kitty;"
+exec swaymsg "workspace 3:3; exec evolution;"
+exec swaymsg "workspace 4:4; exec kitty -- weechat;"
+exec swaymsg "workspace 5:5; exec telegram-desktop;"
+#exec swaymsg "workspace 6; exec zoom;"
+exec swaymsg "workspace 6:6; exec discord;"
+exec swaymsg "workspace 10:10; exec kitty -- cmus;"

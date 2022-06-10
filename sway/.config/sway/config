@@ -20,7 +20,7 @@ set $term kitty
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | mauncher | xargs swaymsg exec -- 
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-set $menu exec $term --class=launcher -e sway-launcher-desktop
+set $menu exec wlaunchpad -t kitty
 bindsym $mod+d exec $menu
 ### Output configuration
 #
@@ -32,6 +32,35 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+output LVDS-1 resolution 1366x768@60.002Hz position 0,256
+output VGA-1 resolution 1280x1024@75.025Hz position 1366,0
+
+# Set on close lid option
+bindswitch --reload --locked lid:on output LVDS-1 disable
+bindswitch --reload --locked lid:off output LVDS-1 enable
+
+set $ext Control
+
+# Toggle monitors around
+
+#   put off laptop monitor
+    bindsym --locked $ext+$mod+Down output LVDS-1 dpms off 
+#   put on laptop monitor
+    bindsym --locked $ext+$mod+Up output LVDS-1 dpms on
+#   put off external monitor
+    bindsym --locked $ext+$mod+Left output VGA-1 dpms off
+#   put on external monitor
+    bindsym --locked $ext+$mod+Right output VGA-1 dpms on
+
+#   put off laptop monitor
+    bindsym --locked $ext+$mod+Shift+Down output LVDS-1 disable
+#   put on laptop monitor
+    bindsym --locked $ext+$mod+Shift+Up output LVDS-1 enable
+#   put off external monitor
+    bindsym --locked $ext+$mod+Shift+Left output VGA-1 disable
+#   put on external monitor
+    bindsym --locked $ext+$mod+Shift+Right output VGA-1 enable
 
 ### Idle configuration
 #
@@ -71,14 +100,19 @@ exec swayidle  \
 input "2:7:SynPS/2_Synaptics_TouchPad" {
   click_method clickfinger
   drag enabled
+  drag_lock enabled
   tap enabled
   dwt enabled
-  accel_profile flat
+  accel_profile adaptive
  }
 
 input type:keyboard {
-    xkb_layout us,ru
-    xkb_options "grp:win_space_toggle, grp:alt_shift_toggle, compose:ralt"
+  xkb_layout us,ru
+  xkb_options "grp:win_space_toggle, grp:alt_shift_toggle, compose:ralt"
+}
+
+input 2:10:TPPS/2_IBM_TrackPoint {
+  pointer_accel 1  
 }
 
 ### Key bindings
@@ -89,7 +123,6 @@ input type:keyboard {
     bindsym --to-code $mod+Return exec $term
 
     # Kill focused window
-    bindsym --to-code Mod1+F4 kill
     bindsym --to-code $mod+q kill
 
     # Start your launcher
@@ -125,29 +158,80 @@ input type:keyboard {
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+    bindsym $mod+1 workspace 1:1
+    bindsym $mod+2 workspace 2:2
+    bindsym $mod+3 workspace 3:3
+    bindsym $mod+4 workspace 4:4
+    bindsym $mod+5 workspace 5:5
+    bindsym $mod+6 workspace 6:6
+    bindsym $mod+7 workspace 7:7
+    bindsym $mod+8 workspace 8:8
+    bindsym $mod+9 workspace 9:9
+    bindsym $mod+0 workspace 10:10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace 1:1
+    bindsym $mod+Shift+2 move container to workspace 2:2
+    bindsym $mod+Shift+3 move container to workspace 3:3
+    bindsym $mod+Shift+4 move container to workspace 4:4
+    bindsym $mod+Shift+5 move container to workspace 5:5
+    bindsym $mod+Shift+6 move container to workspace 6:6
+    bindsym $mod+Shift+7 move container to workspace 7:7
+    bindsym $mod+Shift+8 move container to workspace 8:8
+    bindsym $mod+Shift+9 move container to workspace 9:9
+    bindsym $mod+Shift+0 move container to workspace 10:10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+#
+# EXTERNAL DISPLAY
+#
+    # Switch to workspace
+    bindsym $mod+$ext+1 workspace 11:a
+    bindsym $mod+$ext+2 workspace 12:b
+    bindsym $mod+$ext+3 workspace 13:c
+    bindsym $mod+$ext+4 workspace 14:d
+    bindsym $mod+$ext+5 workspace 15:e
+    bindsym $mod+$ext+6 workspace 16:f
+    bindsym $mod+$ext+7 workspace 17:g
+    bindsym $mod+$ext+8 workspace 18:h
+    bindsym $mod+$ext+9 workspace 19:i
+    bindsym $mod+$ext+0 workspace 20:j
+    # Move focused container to workspace
+    bindsym $mod+$ext+Shift+1 move container to workspace 11:a
+    bindsym $mod+$ext+Shift+2 move container to workspace 12:b
+    bindsym $mod+$ext+Shift+3 move container to workspace 13:c
+    bindsym $mod+$ext+Shift+4 move container to workspace 14:d
+    bindsym $mod+$ext+Shift+5 move container to workspace 15:e
+    bindsym $mod+$ext+Shift+6 move container to workspace 16:f
+    bindsym $mod+$ext+Shift+7 move container to workspace 17:g
+    bindsym $mod+$ext+Shift+8 move container to workspace 18:h
+    bindsym $mod+$ext+Shift+9 move container to workspace 19:i
+    bindsym $mod+$ext+Shift+0 move container to workspace 20:j
+
+bindsym Alt+Tab workspace back_and_forth
+
+# Arrange workspaces by display
+workspace 1:1 output LVDS-1
+workspace 2:2 output LVDS-1
+workspace 3:3 output LVDS-1
+workspace 4:4 output LVDS-1
+workspace 5:5 output LVDS-1
+workspace 6:6 output LVDS-1
+workspace 7:7 output LVDS-1
+workspace 8:8 output LVDS-1
+workspace 9:9 output LVDS-1
+workspace 10:10 output LVDS-1
+
+workspace 11:a output VGA-1
+workspace 12:b output VGA-1
+workspace 13:c output VGA-1
+workspace 14:d output VGA-1
+workspace 15:e output VGA-1
+workspace 16:f output VGA-1
+workspace 17:g output VGA-1
+workspace 18:h output VGA-1
+workspace 19:i output VGA-1
+workspace 20:j output VGA-1
+
 #
 # Layout stuff:
 #
@@ -220,6 +304,10 @@ bar {
 
 #A font to match Waybar
 font pango:Cantarell 14px
+
+# Disable tiled borders
+default_border pixel 3
+default_floating_border normal
 
 #Manage clipboard with clipman
 exec wl-paste -t text --watch clipman store --no-persist

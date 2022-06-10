@@ -4,12 +4,11 @@ if status is-interactive
     source $FLINE_PATH/themes/washed.fish
 end
 
-function fish_prompt
-    fishline -s $status
-end
-
 function fish_greeting
     neofetch
 end
 
 alias nano="nano --magic --locking --bold"
+alias doomrunner="env SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire doomrunner"
+
+source /etc/fenvironment
